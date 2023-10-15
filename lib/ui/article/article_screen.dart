@@ -28,20 +28,17 @@ class ArticleScreen extends StatelessWidget {
           StrapiConverter(),
           articlesApi: ArticlesApi(dio: Dio()),
           env: EnvironmentVariables.init(),
-        ).getArticle(context, 1),
+        ).getArticle(
+          context,
+          1,
+          Theme.of(context).textTheme,
+        ),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Padding(
               padding: const EdgeInsets.all(Spacing.m),
               child: ListView(
-                children: [
-                  ...snapshot.data ?? [],
-                  Text(
-                    title,
-                    style: Theme.of(context).textTheme.titleLarge,
-                    textAlign: TextAlign.left,
-                  ),
-                ],
+                children: [...snapshot.data ?? []],
               ),
             );
           }
