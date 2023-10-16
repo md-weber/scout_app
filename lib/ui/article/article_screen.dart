@@ -1,51 +1,59 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:scout_app/api/articles.dart';
-import 'package:scout_app/bloc/articles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scout_app/constants.dart';
-import 'package:scout_app/env_load.dart';
-import 'package:strapi_converter/strapi_converter/converter.dart';
+import 'package:scout_app/news/news_cubit.dart';
+import 'package:scout_app/news/news_state.dart';
 
 class ArticleScreen extends StatelessWidget {
-  final String title;
+  const ArticleScreen({super.key});
 
-  const ArticleScreen({super.key, required this.title});
-
-  static navigate(BuildContext context, String title) {
+  static navigate(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => ArticleScreen(title: title),
+        builder: (context) => const ArticleScreen(),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: FutureBuilder(
-        future: ArticlesBloc(
-          StrapiConverter(),
-          articlesApi: ArticlesApi(dio: Dio()),
-          env: EnvironmentVariables.init(),
-        ).getArticle(
-          context,
-          1,
-          Theme.of(context).textTheme,
+    return BlocBuilder<NewsCubit, NewsState>(
+      builder: (context, state) => Scaffold(
+        appBar: AppBar(
+          title: Text(state.currentArticle?.title ?? ""),
         ),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Padding(
-              padding: const EdgeInsets.all(Spacing.m),
-              child: ListView(
-                children: [...snapshot.data ?? []],
-              ),
-            );
-          }
-          if (snapshot.hasError) return Text(snapshot.error.toString());
-          return const CircularProgressIndicator();
-        },
+        body: Padding(
+          padding: const EdgeInsets.all(Spacing.m),
+          child: ListView(
+            children: [...state.currentArticle?.widgets ?? []],
+          ),
+        ),
       ),
     );
   }
 }
+
+// Scaffold(
+//       appBar: AppBar(
+//         title: const Text("Headline"),
+//       ),
+//       body: FutureBuilder(
+//         future: articlesBloc.getArticle(
+//           context,
+//           1,
+//           Theme.of(context).textTheme,
+//         ),
+//         builder: (context, snapshot) {
+//           if (snapshot.hasData) {
+//             return Padding(
+//               padding: const EdgeInsets.all(Spacing.m),
+//               child: ListView(
+//                 children: [...snapshot.data ?? []],
+//               ),
+//             );
+//           }
+//           if (snapshot.hasError) return Text(snapshot.error.toString());
+//           return const CircularProgressIndicator();
+//         },
+//       ),
+//     );

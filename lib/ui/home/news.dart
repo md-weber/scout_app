@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:scout_app/constants.dart';
+import 'package:scout_app/news/news_cubit.dart';
+import 'package:scout_app/news/news_state.dart';
 import 'package:scout_app/ui/article/article_screen.dart';
 import 'package:scout_app/utils/readable_date.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class News extends StatelessWidget {
   const News({super.key});
 
   @override
   Widget build(BuildContext context) {
+    context.read<NewsCubit>().fetchPreviews();
     return Column(
       children: [
         Text("News & Highlights",
@@ -16,22 +20,30 @@ class News extends StatelessWidget {
           height: Spacing.l,
         ),
         Expanded(
-          child: ListView.separated(
-            itemCount: 1,
-            separatorBuilder: (context, index) {
-              return const SizedBox(width: Spacing.s);
-            },
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: const Text(
-                  "Das Digital Café Durlach Aue startet in die zweite Runde",
-                  overflow: TextOverflow.ellipsis,
-                ),
-                subtitle: Text(DateTime(2023, 10, 12).format("dd.MM.yyyy")),
-                trailing: const Icon(Icons.navigate_next),
-                onTap: () {
-                  ArticleScreen.navigate(context,
-                      "Das Digital Café Durlach Aue startet in die zweite Runde");
+          child: BlocBuilder<NewsCubit, NewsState>(
+            builder: (context, state) {
+              return ListView.separated(
+                itemCount: state.previews.length,
+                separatorBuilder: (context, index) {
+                  return const SizedBox(width: Spacing.s);
+                },
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(
+                      state.previews[index].title,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    subtitle: Text(
+                      state.previews[index].published.format("dd.MM.yyyy"),
+                    ),
+                    trailing: const Icon(Icons.navigate_next),
+                    onTap: () {
+                      context
+                          .read<NewsCubit>()
+                          .fetchArticle(state.previews[index].id);
+                      ArticleScreen.navigate(context);
+                    },
+                  );
                 },
               );
             },
