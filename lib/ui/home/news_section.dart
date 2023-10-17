@@ -6,8 +6,8 @@ import 'package:scout_app/ui/article/article_screen.dart';
 import 'package:scout_app/utils/readable_date.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class News extends StatelessWidget {
-  const News({super.key});
+class NewsSection extends StatelessWidget {
+  const NewsSection({super.key});
 
   @override
   Widget build(BuildContext context) {

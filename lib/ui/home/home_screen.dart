@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scout_app/constants.dart';
-import 'package:scout_app/ui/home/news.dart';
+import 'package:scout_app/ui/home/news_section.dart';
 import 'package:scout_app/ui/home/upcoming_events.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: Spacing.l),
         child: Column(
           children: [
-            const Expanded(child: News()),
+            const Expanded(child: NewsSection()),
             Expanded(child: UpcomingEvents())
           ],
         ),

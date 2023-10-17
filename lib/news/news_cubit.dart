@@ -8,13 +8,13 @@ class NewsCubit extends Cubit<NewsState> {
   NewsCubit(this._articlesRepo) : super(const NewsState(previews: []));
 
   Future<void> fetchPreviews() async {
-    emit(state.copyWith(previews: await _articlesRepo.getPreviews()));
+    emit(state.copyWith(previews: await _articlesRepo.fetchPreviews()));
   }
 
   Future<void> fetchArticle(int id) async {
     emit(
       state.copyWith(
-        currentArticle: await _articlesRepo.getArticle(id),
+        currentArticle: await _articlesRepo.fetchArticle(id),
       ),
     );
   }

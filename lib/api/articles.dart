@@ -11,7 +11,7 @@ class ArticlesRepository {
 
   ArticlesRepository(this._dio, this._env, this._strapiConverter);
 
-  Future<Article> getArticle(int articleId) async {
+  Future<Article> fetchArticle(int articleId) async {
     _dio.options = BaseOptions(
       headers: {
         "Authorization": "Bearer ${_env.strapiKey}",
@@ -20,7 +20,7 @@ class ArticlesRepository {
     );
 
     var resultJson = await _dio.get("${_env.strapiUrl}/articles/$articleId");
-    var test = _strapiConverter.convertFromJson(resultJson.data);
+    var test = _strapiConverter.convertSingleFromJson(resultJson.data);
     return Article(
       title: test.getString("title"),
       id: test.id,
@@ -32,7 +32,7 @@ class ArticlesRepository {
     );
   }
 
-  Future<List<Preview>> getPreviews() async {
+  Future<List<Preview>> fetchPreviews() async {
     _dio.options = BaseOptions(
       headers: {"Authorization": "Bearer ${_env.strapiKey}"},
       queryParameters: {
