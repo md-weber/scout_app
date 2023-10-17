@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:scout_app/api/entity/article_entity.dart';
 import 'package:scout_app/api/entity/preview_data_entity.dart';
 import 'package:scout_app/env_load.dart';
 import 'package:scout_app/news/news_state.dart';
@@ -17,18 +16,19 @@ class ArticlesRepository {
       headers: {
         "Authorization": "Bearer ${_env.strapiKey}",
       },
+      queryParameters: {"populate": "*"},
     );
 
-    var test = await _dio.get("${_env.strapiUrl}/articles/$articleId");
-    final entity = ArticleEntity.fromJson(test.data);
-    var list = _strapiConverter.convertFromJsonToWidgets(test.data);
+    var resultJson = await _dio.get("${_env.strapiUrl}/articles/$articleId");
+    var test = _strapiConverter.convertFromJson(resultJson.data);
     return Article(
-      title: entity.data.attributes.title,
-      id: entity.data.id,
-      subtitle: entity.data.attributes.subtitle,
-      published: entity.data.attributes.publishedAt,
-      author: "N/A",
-      widgets: list.convertedRichText,
+      title: test.getString("title"),
+      id: test.id,
+      subtitle: test.getString("subtitle"),
+      published: test.getDateTime("publishedAt"),
+      author: test.getString("Name"),
+      widgets: _strapiConverter.convertRichTextAttributeToWidgets(
+          richTextModel: test.richTextModels[0]),
     );
   }
 
