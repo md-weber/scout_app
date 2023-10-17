@@ -8,5 +8,5 @@ extension DateFormatter on DateTime {
 
 String readableDate(DateTime dateTime, String format) {
   if (format.isEmpty) return dateTime.toIso8601String();
-  return DateFormat(format).format(dateTime);
+  return DateFormat(format).format(dateTime.toLocal());
 }

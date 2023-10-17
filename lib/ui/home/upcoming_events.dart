@@ -25,7 +25,7 @@ class UpcomingEvents extends StatelessWidget {
               title: Text(events[index].name),
               subtitle: Text(events[index].meetingPoint),
               trailing: Text(
-                readableDate(events[index].date, "dd.MM.yyyy"),
+                readableDate(events[index].date, "dd.MM.yyyy hh:mm"),
               ),
             ),
             separatorBuilder: (context, index) =>
