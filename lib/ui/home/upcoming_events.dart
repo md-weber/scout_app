@@ -13,11 +13,11 @@ class UpcomingEvents extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<UpcomingEventsCubit>().fetchUpcomingEvents();
     final List<UpcomingEvent> events =
-        context.read<UpcomingEventsCubit>().state.events;
+        context.watch<UpcomingEventsCubit>().state.events;
     return Column(
       children: [
         Text(
-          "Upcoming Events",
+          "Kommende Veranstaltungen",
           style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: Spacing.m),

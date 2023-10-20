@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:scout_app/constants.dart';
 import 'package:scout_app/news/news_cubit.dart';
 import 'package:scout_app/news/news_state.dart';
-import 'package:scout_app/ui/article/article_screen.dart';
 import 'package:scout_app/utils/readable_date.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsSection extends StatelessWidget {
   const NewsSection({super.key});
@@ -37,12 +37,13 @@ class NewsSection extends StatelessWidget {
                       state.previews[index].published.format("dd.MM.yyyy"),
                     ),
                     trailing: const Icon(Icons.navigate_next),
-                    onTap: () {
-                      context.read<NewsCubit>().fetchArticle(
-                            state.previews[index].id,
-                            Theme.of(context).textTheme,
-                          );
-                      ArticleScreen.navigate(context);
+                    onTap: () async {
+                      var post = Uri.parse(
+                        "https://nextjs-contentlayer-lb1d.vercel.app/${state.previews[index].slug}",
+                      );
+                      if (await canLaunchUrl(post)) {
+                        launchUrl(post);
+                      }
                     },
                   );
                 },

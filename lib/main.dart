@@ -17,7 +17,7 @@ void main() {
   var dio = Dio();
   runApp(
     MainApp(
-      articlesApi: ArticlesRepository(),
+      articlesApi: ArticlesRepository(dio),
       upcomingEventsRepo: UpcomingEventsRepo(dio),
     ),
   );

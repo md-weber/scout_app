@@ -12,11 +12,5 @@ class NewsCubit extends Cubit<NewsState> {
     emit(state.copyWith(previews: await _articlesRepo.fetchPreviews()));
   }
 
-  Future<void> fetchArticle(int id, TextTheme textTheme) async {
-    emit(
-      state.copyWith(
-        currentArticle: await _articlesRepo.fetchArticle(id, textTheme),
-      ),
-    );
-  }
+  Future<void> fetchArticle(int id, TextTheme textTheme) async {}
 }

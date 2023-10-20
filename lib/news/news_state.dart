@@ -14,10 +14,10 @@ class NewsState with _$NewsState {
 @freezed
 class Preview with _$Preview {
   const factory Preview({
-    required int id,
     required String title,
     required String subTitle,
     required DateTime published,
+    required String slug,
   }) = _Preview;
 }
 
