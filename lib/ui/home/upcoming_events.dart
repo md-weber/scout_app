@@ -1,9 +1,9 @@
+import 'package:digital_cafe_karlsruhe/constants.dart';
+import 'package:digital_cafe_karlsruhe/upcoming_events/upcoming_events_cubit.dart';
+import 'package:digital_cafe_karlsruhe/upcoming_events/upcoming_events_state.dart';
+import 'package:digital_cafe_karlsruhe/utils/readable_date.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scout_app/constants.dart';
-import 'package:scout_app/upcoming_events/upcoming_events_cubit.dart';
-import 'package:scout_app/upcoming_events/upcoming_events_state.dart';
-import 'package:scout_app/utils/readable_date.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UpcomingEvents extends StatelessWidget {

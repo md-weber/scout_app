@@ -1,14 +1,14 @@
+import 'package:digital_cafe_karlsruhe/api/articles.dart';
+import 'package:digital_cafe_karlsruhe/api/upcoming_events.dart';
+import 'package:digital_cafe_karlsruhe/news/news_cubit.dart';
+import 'package:digital_cafe_karlsruhe/theme/theme_cubit.dart';
+import 'package:digital_cafe_karlsruhe/theme/theme_state.dart';
+import 'package:digital_cafe_karlsruhe/theme/themes.dart';
+import 'package:digital_cafe_karlsruhe/ui/home/home_screen.dart';
+import 'package:digital_cafe_karlsruhe/upcoming_events/upcoming_events_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scout_app/api/articles.dart';
-import 'package:scout_app/api/upcoming_events.dart';
-import 'package:scout_app/news/news_cubit.dart';
-import 'package:scout_app/theme/theme_cubit.dart';
-import 'package:scout_app/theme/theme_state.dart';
-import 'package:scout_app/theme/themes.dart';
-import 'package:scout_app/ui/home/home_screen.dart';
-import 'package:scout_app/upcoming_events/upcoming_events_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

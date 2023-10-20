@@ -1,6 +1,6 @@
+import 'package:digital_cafe_karlsruhe/api/entity/upcoming_event_entity.dart';
+import 'package:digital_cafe_karlsruhe/upcoming_events/upcoming_events_state.dart';
 import 'package:dio/dio.dart';
-import 'package:scout_app/api/entity/upcoming_event_entity.dart';
-import 'package:scout_app/upcoming_events/upcoming_events_state.dart';
 
 class UpcomingEventsRepo {
   final Dio _dio;

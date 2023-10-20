@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:digital_cafe_karlsruhe/api/articles.dart';
+import 'package:digital_cafe_karlsruhe/news/news_state.dart';
 import 'package:flutter/material.dart';
-import 'package:scout_app/api/articles.dart';
-import 'package:scout_app/news/news_state.dart';
 
 class NewsCubit extends Cubit<NewsState> {
   final ArticlesRepository _articlesRepo;

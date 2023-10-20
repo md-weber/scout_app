@@ -1,5 +1,5 @@
+import 'package:digital_cafe_karlsruhe/utils/readable_date.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:scout_app/utils/readable_date.dart';
 
 void main() {
   group('readableDate', () {

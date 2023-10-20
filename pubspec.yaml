@@ -1,7 +1,7 @@
-name: scout_app
-description: A new Flutter project.
+name: digital_cafe_karlsruhe
+description: A Flutter project for the Digital Café in Karlsruhe a free assoc. for young and old to answer computer questions.
 publish_to: "none"
-version: 0.1.0
+version: 1.0.0
 
 environment:
   sdk: ">=3.1.3 <4.0.0"
@@ -12,8 +12,6 @@ dependencies:
     sdk: flutter
   intl: ^0.18.1
   flutter_bloc: ^8.1.3
-  strapi_converter:
-    path: "./packages/strapi_converter"
   bloc: ^8.1.2
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1

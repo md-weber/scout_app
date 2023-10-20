@@ -1,8 +1,8 @@
+import 'package:digital_cafe_karlsruhe/constants.dart';
+import 'package:digital_cafe_karlsruhe/ui/home/dark_mode_toggle.dart';
+import 'package:digital_cafe_karlsruhe/ui/home/news_section.dart';
+import 'package:digital_cafe_karlsruhe/ui/home/upcoming_events.dart';
 import 'package:flutter/material.dart';
-import 'package:scout_app/constants.dart';
-import 'package:scout_app/ui/home/dark_mode_toggle.dart';
-import 'package:scout_app/ui/home/news_section.dart';
-import 'package:scout_app/ui/home/upcoming_events.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

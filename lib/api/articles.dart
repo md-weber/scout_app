@@ -1,7 +1,7 @@
+import 'package:digital_cafe_karlsruhe/api/entity/preview.dart';
+import 'package:digital_cafe_karlsruhe/news/news_state.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:scout_app/api/entity/preview.dart';
-import 'package:scout_app/news/news_state.dart';
 
 class ArticlesRepository {
   final Dio _dio;

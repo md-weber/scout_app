@@ -1,7 +1,7 @@
+import 'package:digital_cafe_karlsruhe/news/news_cubit.dart';
+import 'package:digital_cafe_karlsruhe/news/news_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scout_app/news/news_cubit.dart';
-import 'package:scout_app/news/news_state.dart';
 
 class ArticleScreen extends StatelessWidget {
   const ArticleScreen({super.key});

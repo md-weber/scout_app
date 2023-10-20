@@ -549,13 +549,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
-  strapi_converter:
-    dependency: "direct main"
-    description:
-      path: "packages/strapi_converter"
-      relative: true
-    source: path
-    version: "0.0.1"
   stream_channel:
     dependency: transitive
     description:

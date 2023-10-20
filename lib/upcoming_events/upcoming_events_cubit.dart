@@ -1,6 +1,6 @@
+import 'package:digital_cafe_karlsruhe/api/upcoming_events.dart';
+import 'package:digital_cafe_karlsruhe/upcoming_events/upcoming_events_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scout_app/api/upcoming_events.dart';
-import 'package:scout_app/upcoming_events/upcoming_events_state.dart';
 
 class UpcomingEventsCubit extends Cubit<UpcomingEventsState> {
   final UpcomingEventsRepo _upcomingEventsRepo;
