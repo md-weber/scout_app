@@ -1,6 +1,6 @@
 {
-    "name": "scout_app",
-    "short_name": "scout_app",
+    "name": "digital_cafe",
+    "short_name": "digital_cafe",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
