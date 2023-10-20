@@ -15,5 +15,6 @@ class UpcomingEvent with _$UpcomingEvent {
     required String name,
     required DateTime date,
     required String meetingPoint,
+    required Uri locationUri,
   }) = _UpcomingEvent;
 }

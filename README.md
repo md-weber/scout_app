@@ -1,8 +1,8 @@
-# A scouts app for a german association
+# A app for a german association called "Digitalcafé Karlsruhe"
 
-The idea is to collect here some digital ideas for a scout app for the group in Daxlanden.
+The idea is to collect here some digital ideas a app for the Digitalcafé Karlsruhe.
 
-- [Pfadfinder Daxlanden](https://pfadfinder-daxlanden.de/)
+- [Digitalcafé Karlsruhe]()
 
 ## Ideas for this app
 
@@ -12,13 +12,7 @@ In this app I would like to contain all features of the website and maybe incorp
 
 Create feature parity with the website
 
-- [ ] Main Page
-  - [ ] Group Hours
-  - [ ] Leader Rounds
-  - [ ] Calender access
-  - [ ] Contact Form (Maybe a Webview)
-  - [ ] Places
-  - [ ] Downloads (Stickers etc.)
+- [x] Main Page
 
 If the app is feature parity with the website, some ideas what we could add in the future:
 

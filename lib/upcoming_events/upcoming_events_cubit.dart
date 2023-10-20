@@ -11,6 +11,7 @@ class UpcomingEventsCubit extends Cubit<UpcomingEventsState> {
 
   Future<void> fetchUpcomingEvents() async {
     var t = await _upcomingEventsRepo.fetchUpcomingEvents();
+    t.sort((a, b) => a.date.compareTo(b.date));
     emit(state.copyWith(events: t));
   }
 }

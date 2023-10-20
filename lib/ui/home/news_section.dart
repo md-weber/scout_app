@@ -38,9 +38,10 @@ class NewsSection extends StatelessWidget {
                     ),
                     trailing: const Icon(Icons.navigate_next),
                     onTap: () {
-                      context
-                          .read<NewsCubit>()
-                          .fetchArticle(state.previews[index].id);
+                      context.read<NewsCubit>().fetchArticle(
+                            state.previews[index].id,
+                            Theme.of(context).textTheme,
+                          );
                       ArticleScreen.navigate(context);
                     },
                   );

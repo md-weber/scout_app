@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:scout_app/api/articles.dart';
 import 'package:scout_app/news/news_state.dart';
 
@@ -11,10 +12,10 @@ class NewsCubit extends Cubit<NewsState> {
     emit(state.copyWith(previews: await _articlesRepo.fetchPreviews()));
   }
 
-  Future<void> fetchArticle(int id) async {
+  Future<void> fetchArticle(int id, TextTheme textTheme) async {
     emit(
       state.copyWith(
-        currentArticle: await _articlesRepo.fetchArticle(id),
+        currentArticle: await _articlesRepo.fetchArticle(id, textTheme),
       ),
     );
   }

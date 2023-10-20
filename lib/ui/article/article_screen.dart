@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scout_app/constants.dart';
 import 'package:scout_app/news/news_cubit.dart';
 import 'package:scout_app/news/news_state.dart';
 
@@ -22,11 +21,8 @@ class ArticleScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(state.currentArticle?.title ?? ""),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(Spacing.m),
-          child: ListView(
-            children: [...state.currentArticle?.widgets ?? []],
-          ),
+        body: ListView(
+          children: [...state.currentArticle?.widgets ?? []],
         ),
       ),
     );
